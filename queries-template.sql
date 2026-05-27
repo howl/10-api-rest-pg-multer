@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users, servicios;
+DROP TABLE IF EXISTS users, services;
 
 CREATE TABLE IF NOT EXISTS users (
   id serial NOT NULL PRIMARY KEY,
@@ -15,17 +15,18 @@ VALUES
   ('Alfiler', 'alfiler@example.com', 'INVALID_PASSWORD'),
   ('Troca', 'troca@example.com', 'INVALID_PASSWORD');
 
-CREATE TABLE IF NOT EXISTS servicios (
+CREATE TABLE IF NOT EXISTS services (
   id serial NOT NULL PRIMARY KEY,
-  titulo varchar(100) NOT NULL,
-  descripcion text NOT NULL,
-  fecha date DEFAULT CURRENT_DATE,
-  categoria varchar(15)
+  name varchar(100) NOT NULL,
+  description text NOT NULL,
+  category varchar(15),
+  price numeric(19, 4),
+  creation_date date DEFAULT CURRENT_DATE
 );
 
-INSERT INTO servicios (titulo, descripcion, categoria)
+INSERT INTO services (name, description, category, price)
 VALUES
-  ('Servicio 1', 'Descripción del servicio 1', 'Asistencia'),
-  ('Servicio 2', 'Descripción del servicio 2', 'Entretenimiento'),
-  ('Servicio 3', 'Descripción del servicio 3', 'Autonomía'),
-  ('Servicio 4', 'Descripción del servicio 4', 'Educación');
+  ('Servicio 1', 'Descripción del servicio 1', 'Asistencia', 543.78),
+  ('Servicio 2', 'Descripción del servicio 2', 'Entretenimiento', 93.67),
+  ('Servicio 3', 'Descripción del servicio 3', 'Autonomía', 52.18),
+  ('Servicio 4', 'Descripción del servicio 4', 'Educación', 84.93);

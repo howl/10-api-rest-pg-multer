@@ -5,11 +5,11 @@ const queriesUser = {
 };
 
 const queriesService = {
-  getServices: 'SELECT * FROM servicios;',
-  getServiceById: 'SELECT * FROM servicios WHERE id = $1;',
-  addService: 'INSERT INTO servicios (titulo, descripcion, categoria) VALUES ($1, $2, $3) RETURNING *;',
-  updateServiceById: 'UPDATE servicios SET titulo = $2, descripcion = $3, categoria = $4 WHERE id = $1 RETURNING *;',
-  deleteServiceById: 'DELETE FROM servicios WHERE id = $1 RETURNING *;'
+  getServices: 'SELECT * FROM services;',
+  getServiceById: 'SELECT * FROM services WHERE id = $1;',
+  addService: 'INSERT INTO services (name, description, category) VALUES ($1, $2, $3) RETURNING *;',
+  updateServiceById: 'UPDATE services SET name = $2, description = $3, category = $4 WHERE id = $1 RETURNING *;',
+  deleteServiceById: 'DELETE FROM services WHERE id = $1 RETURNING *;'
 };
 
 module.exports = { queriesUser, queriesService };

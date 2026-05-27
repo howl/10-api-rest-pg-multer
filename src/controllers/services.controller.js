@@ -82,11 +82,13 @@ const updateServiceById = async (req, res) => {
     //   precio: req.body.precio
     // }, { returnDocument: 'after' });
 
+    const { name, description, category, price } = req.body;
+
     const updatedService = await Service.findByIdAndUpdate(serviceId, {
-      nombre: req.body.nombre,
-      descripcion: req.body.descripcion,
-      categoria: req.body.categoria,
-      precio: req.body.precio
+      name,
+      description,
+      category,
+      price
     }, { returnDocument: 'after' });
 
     if (!updatedService) {

@@ -1,4 +1,4 @@
-const { pool } = require("../utils/pgConnect");
+const pool = require("../utils/pgConnect");
 const { queriesService } = require("./queries.postgres");
 
 const find = async () => {
@@ -34,11 +34,11 @@ const findById = async (id) => {
 };
 
 const save = async (entry) => {
-  const { nombre: titulo, descripcion, categoria } = entry;
+  const { name, description, category } = entry;
   let client, result;
   try {
     client = await pool.connect();
-    const data = await client.query(queriesService.addService, [titulo, descripcion, categoria]);
+    const data = await client.query(queriesService.addService, [name, description, category]);
 
     result = data.rows;
   } catch (error) {
@@ -51,11 +51,11 @@ const save = async (entry) => {
 };
 
 const findByIdAndUpdate = async (id, entry) => {
-  const { nombre: titulo, descripcion, categoria } = entry;
+  const { name, description, category } = entry;
   let client, result;
   try {
     client = await pool.connect();
-    const data = await client.query(queriesService.updateServiceById, [id, titulo, descripcion, categoria]);
+    const data = await client.query(queriesService.updateServiceById, [id, name, description, category]);
 
     result = data.rows;
   } catch (error) {
