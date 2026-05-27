@@ -1,0 +1,26 @@
+{
+  "name": "api-rest-mongoose",
+  "version": "0.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "sql": "podman exec -i bootcamp-postgres psql -U postgres -d api_rest < queries-template.sql",
+    "newJwtSecret": "node -e 'console.log(require(\"crypto\").randomBytes(64).toString(\"hex\"))'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-postgres": "node src/models/test.postgres.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.2",
+    "pg": "^8.21.0"
+  }
+}
