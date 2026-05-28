@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const dbConnect = require("./utils/mongoConnect");
 
 require("dotenv").config();
@@ -7,6 +8,10 @@ const PORT = process.env.PORT || 3000;
 const URL_BASE = process.env.URL_BASE;
 
 const app = express();
+
+app.use(cors({
+  origin: 'http://127.0.0.1:3001'
+}));
 
 app.use(express.json());
 app.use(express.urlencoded());
